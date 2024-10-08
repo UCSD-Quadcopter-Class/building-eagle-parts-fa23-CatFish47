@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
@@ -98,8 +98,8 @@
 <package name="0805_RESISTOR">
 <smd name="1" x="-1.05" y="0" dx="0.9" dy="1.2" layer="1"/>
 <smd name="2" x="1.05" y="0" dx="0.9" dy="1.2" layer="1"/>
-<text x="-1.9" y="1.85" size="0.9" layer="25" font="vector">&gt;Name</text>
-<text x="-1.9" y="-2.75" size="0.9" layer="27" font="vector">&gt;Value</text>
+<text x="-2" y="2" size="0.9" layer="25" font="vector">&gt;NAME</text>
+<text x="-2" y="-2" size="0.9" layer="27" font="vector" align="top-left">&gt;VALUE</text>
 <wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.05" layer="39"/>
 <wire x1="2.4" y1="1.9" x2="2.4" y2="-1.9" width="0.05" layer="39"/>
 <wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.05" layer="39"/>
@@ -141,7 +141,7 @@
 <rectangle x1="-1.346" y1="0.6705" x2="-0.622" y2="1.2295" layer="31"/>
 <rectangle x1="-1.346" y1="-1.2295" x2="-0.622" y2="-0.6705" layer="31"/>
 </package>
-<package name="IMU_497-18367-1-ND">
+<package name="IMU_LSM6DS0">
 <circle x="-1.25" y="1" radius="0.09288125" width="0.05" layer="51"/>
 <smd name="SDO/SA0" x="1.15" y="0.75" dx="0.575" dy="0.35" layer="1" stop="no"/>
 <smd name="SDX" x="1.15" y="0.25" dx="0.575" dy="0.35" layer="1" stop="no"/>
@@ -161,8 +161,8 @@
 <wire x1="2.4" y1="2.4" x2="2.4" y2="-2.4" width="0.05" layer="39"/>
 <wire x1="2.4" y1="-2.4" x2="-2.4" y2="-2.4" width="0.05" layer="39"/>
 <wire x1="-2.4" y1="-2.4" x2="-2.4" y2="2.4" width="0.05" layer="39"/>
-<text x="-2.4" y="2.4" size="0.9" layer="25" font="vector">&gt;Name</text>
-<text x="-2.4" y="-2.4" size="0.9" layer="25" font="vector" align="top-left">&gt;Value</text>
+<text x="-2.4" y="2.4" size="0.9" layer="25" font="vector">&gt;NAME</text>
+<text x="-2.4" y="-2.4" size="0.9" layer="27" font="vector" align="top-left">&gt;VALUE</text>
 <circle x="-2" y="1.8" radius="0.0544875" width="0.127" layer="21"/>
 <rectangle x1="-0.8" y1="-0.55" x2="0.8" y2="0.55" layer="41"/>
 <wire x1="-1.5" y1="1.25" x2="1.5" y2="1.25" width="0.0762" layer="51"/>
@@ -243,7 +243,7 @@
 <text x="7.62" y="2.54" size="1.778" layer="95">&gt;NAME</text>
 <text x="7.62" y="-2.54" size="1.778" layer="96" align="top-left">&gt;VALUE</text>
 </symbol>
-<symbol name="IMU_497-18367-1-ND">
+<symbol name="IMU_LSM6DS0">
 <pin name="VDD" x="-2.54" y="10.16" visible="pad" length="short" rot="R270"/>
 <pin name="INT2" x="-5.08" y="2.54" visible="pad" length="short"/>
 <pin name="OCS_AUX" x="5.08" y="0" visible="pad" length="short" rot="R180"/>
@@ -255,8 +255,7 @@
 <pin name="CS" x="-5.08" y="0" visible="pad" length="short"/>
 <pin name="SCL" x="-5.08" y="-5.08" visible="pad" length="short"/>
 <pin name="SDA" x="-5.08" y="-2.54" visible="pad" length="short"/>
-<pin name="GND2" x="-2.54" y="-10.16" visible="pad" length="short" rot="R90"/>
-<pin name="GND1" x="2.54" y="-10.16" visible="pad" length="short" rot="R90"/>
+<pin name="GND" x="0" y="-10.16" visible="pad" length="short" rot="R90"/>
 <pin name="VDDIO" x="2.54" y="10.16" visible="pad" length="short" rot="R270"/>
 <wire x1="-2.54" y1="7.62" x2="2.54" y2="7.62" width="0.1524" layer="94"/>
 <wire x1="2.54" y1="7.62" x2="2.54" y2="-7.62" width="0.1524" layer="94"/>
@@ -307,7 +306,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="MOSFET" prefix="MOSFET" uservalue="yes">
+<deviceset name="MOSFET" prefix="Q">
 <gates>
 <gate name="G$1" symbol="MOSFET" x="0" y="0"/>
 </gates>
@@ -328,16 +327,15 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="IMU_497-18367-1-ND" prefix="U" uservalue="yes">
+<deviceset name="IMU_LSM6DS0" prefix="U">
 <gates>
-<gate name="G$1" symbol="IMU_497-18367-1-ND" x="0" y="0"/>
+<gate name="G$1" symbol="IMU_LSM6DS0" x="0" y="0"/>
 </gates>
 <devices>
-<device name="-497-18367-1-ND" package="IMU_497-18367-1-ND">
+<device name="-497-18367-1-ND" package="IMU_LSM6DS0">
 <connects>
 <connect gate="G$1" pin="CS" pad="CS"/>
-<connect gate="G$1" pin="GND1" pad="GND1"/>
-<connect gate="G$1" pin="GND2" pad="GND2"/>
+<connect gate="G$1" pin="GND" pad="GND1 GND2"/>
 <connect gate="G$1" pin="INT1" pad="INT1"/>
 <connect gate="G$1" pin="INT2" pad="INT2"/>
 <connect gate="G$1" pin="OCS_AUX" pad="OCS_AUX"/>
